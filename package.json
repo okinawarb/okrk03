@@ -1,0 +1,13 @@
+{
+  "name": "okinawa-rubykaigi-03",
+  "private": true,
+  "scripts": {
+    "dev:css": "tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/application.css --watch --poll=250",
+    "build:css": "tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/application.css --minify",
+    "build": "npm run build:css && bundle exec jekyll build"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "4.3.3",
+    "tailwindcss": "4.3.3"
+  }
+}

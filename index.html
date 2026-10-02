@@ -1,0 +1,219 @@
+---
+layout: default
+body_class: home-page
+title: トップ
+description: Rubyと出会い、人とつながる。沖縄でひらく、地域Ruby会議「沖縄Ruby会議03」。
+---
+
+<header class="site-header">
+  <a class="site-logo" href="#top" aria-label="沖縄Ruby会議03 トップへ">
+    <img class="site-logo__image" src="{{ '/assets/images/horizontal-logo.svg' | relative_url }}" alt="沖縄Ruby会議03">
+  </a>
+  <nav class="site-nav" aria-label="メインナビゲーション">
+    <a href="#about">あらすじ</a>
+    <a href="#news">お知らせ</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero" aria-label="沖縄Ruby会議03 メインビジュアル">
+    <img class="hero__image" src="{{ '/assets/images/main-visual.webp' | relative_url }}" alt="炎に包まれた沖縄の街を背景に、人々とロボット、巨大なハブと熊が駆け抜ける沖縄Ruby会議03のメインビジュアル">
+    <img class="hero__event-logo" src="{{ '/assets/images/main-visual-logo.webp' | relative_url }}" alt="沖縄Ruby会議03">
+    <p class="hero__opening"><time datetime="2027-02-20">2027年2月20日（土）</time> <a href="https://sakura-zaka.com/" target="_blank" rel="noopener noreferrer">桜坂劇場</a>にて開幕</p>
+    <div class="hero__actions">
+      <button class="hero__sponsor hero__about" type="button" aria-controls="about">あらすじ</button>
+      <a class="hero__sponsor" href="{{ '/sponsors/' | relative_url }}">スポンサー募集</a>
+    </div>
+    <aside class="hero__credits" aria-label="運営スタッフ（仮名）">
+      <h2 class="poster-credits__heading">スタッフ</h2>
+      <dl class="poster-credits">
+        {% for member in site.data.poster_staff %}
+        <div class="poster-credits__member">
+          <dt>{{ member.role }}</dt>
+          <dd>{{ member.name }}</dd>
+        </div>
+        {% endfor %}
+      </dl>
+    </aside>
+    <aside class="hero__credits hero__credits--cast" aria-label="出演者（仮名）">
+      <h2 class="poster-credits__heading">出演</h2>
+      <ul class="poster-cast">
+        {% for speaker in site.data.poster_cast %}
+        <li>{{ speaker.name }}</li>
+        {% endfor %}
+      </ul>
+    </aside>
+  </section>
+
+  <section class="prologue" aria-label="あらすじのプロローグ" hidden>
+    <p class="prologue__text" lang="en">A long time ago in a galaxy far,<br>far away....</p>
+    <button class="intro__back prologue__back" type="button">{% include back-icon.svg %} 戻る</button>
+    <button class="intro__toggle prologue__skip" type="button">スキップ</button>
+  </section>
+
+  <section class="intro" id="about" aria-labelledby="about-title" hidden>
+    <img class="intro__logo" src="{{ '/assets/images/opening-logo.svg' | relative_url }}" alt="沖縄Ruby会議03" width="682" height="267">
+    <div class="intro__viewport">
+      <div class="intro__crawl">
+        <p class="section-label">ABOUT</p>
+        <h2 id="about-title">島の風に吹かれて、<br>Rubyの話をしよう。</h2>
+        <div class="intro__body">
+          <p>沖縄Ruby会議は、Rubyを使う人、つくる人、これから知りたい人が集まる地域Ruby会議です。</p>
+          <p>技術の話も、仕事の話も、その先にいる人の話も。立場や経験を越えて、ゆっくりと交流できる一日を目指します。</p>
+        </div>
+      </div>
+    </div>
+    <button class="intro__toggle" type="button" hidden>一時停止</button>
+    <button class="intro__back" type="button">{% include back-icon.svg %} 戻る</button>
+  </section>
+
+  <section class="news" id="news" aria-labelledby="news-title">
+    <div>
+      <p class="section-label">NEWS</p>
+      <h2 id="news-title">最新のお知らせ</h2>
+    </div>
+    <div class="news__grid">
+      {% for post in site.posts limit:6 %}
+      <article class="news-card">
+        <a class="news-card__link" href="{{ post.url | relative_url }}">
+          <img class="news-card__image" src="{{ post.thumbnail | default: '/assets/images/news/site-open.webp' | relative_url }}" alt="" width="960" height="480" loading="lazy">
+          <div class="news-card__body">
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y.%m.%d' }}</time>
+            <h3>{{ post.title | escape }}</h3>
+            <p>{{ post.description | default: post.excerpt | strip_html | truncate: 100 }}</p>
+            <span class="news-card__more">記事を読む <span aria-hidden="true">↗</span></span>
+          </div>
+        </a>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+</main>
+
+<script>
+  const intro = document.querySelector('.intro');
+  const hero = document.querySelector('.hero');
+  const updateBackdrop = () => {
+    const progress = Math.min(1, Math.max(0, window.scrollY) / (window.innerHeight * .8));
+    document.body.style.setProperty('--hero-shade', progress * .85);
+  };
+  let backdropFrame;
+  const scheduleBackdrop = () => {
+    if (backdropFrame) return;
+    backdropFrame = requestAnimationFrame(() => {
+      updateBackdrop();
+      backdropFrame = null;
+    });
+  };
+  window.addEventListener('scroll', scheduleBackdrop, { passive: true });
+  window.addEventListener('resize', scheduleBackdrop);
+  window.addEventListener('pageshow', updateBackdrop);
+  updateBackdrop();
+  const prologue = document.querySelector('.prologue');
+  const prologueBack = prologue.querySelector('.prologue__back');
+  const prologueSkip = prologue.querySelector('.prologue__skip');
+  let prologueTimer;
+  const header = document.querySelector('.site-header');
+  const aboutButton = document.querySelector('.hero__about');
+  const backButton = intro.querySelector('.intro__back');
+  let aboutTrigger = aboutButton;
+  const toggle = intro.querySelector('.intro__toggle');
+  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let paused = false;
+  let visible = false;
+  const updateCrawl = () => {
+    intro.classList.toggle('intro--animated', !motion.matches);
+    intro.classList.toggle('intro--playing', visible && !paused && !motion.matches);
+    toggle.hidden = motion.matches;
+    toggle.textContent = paused ? '再生' : '一時停止';
+  };
+  toggle.addEventListener('click', () => { paused = !paused; updateCrawl(); });
+  motion.addEventListener('change', updateCrawl);
+  new IntersectionObserver(([entry]) => {
+    visible = entry.isIntersecting;
+    updateCrawl();
+  }, { threshold: 0.15 }).observe(intro);
+  updateCrawl();
+  let switching = false;
+  const transitionScreen = async (from, to, update) => {
+    if (switching) return;
+    switching = true;
+    try {
+      if (motion.matches) {
+        update();
+      } else if (document.startViewTransition) {
+        await document.startViewTransition(update).finished.catch(() => {});
+      } else {
+        await from.animate([{ opacity: 1 }, { opacity: 0 }], {
+          duration: 450, easing: 'ease-in-out', fill: 'forwards'
+        }).finished;
+        update();
+        from.getAnimations().forEach(animation => animation.cancel());
+        await to.animate([{ opacity: 0 }, { opacity: 1 }], {
+          duration: 550, easing: 'ease-out'
+        }).finished;
+      }
+    } finally {
+      switching = false;
+    }
+  };
+  const showCrawl = () => {
+    if (switching || prologue.hidden) return;
+    clearTimeout(prologueTimer);
+    transitionScreen(prologue, intro, () => {
+      prologue.hidden = true;
+      intro.hidden = false;
+      paused = false;
+      visible = true;
+      updateCrawl();
+      intro.scrollIntoView({ behavior: 'instant', block: 'start' });
+      backButton.focus({ preventScroll: true });
+    });
+  };
+  const showAbout = async (trigger = aboutButton) => {
+    if (switching || hero.hidden) return;
+    aboutTrigger = trigger;
+    await transitionScreen(hero, prologue, () => {
+      hero.hidden = true;
+      header.hidden = true;
+      prologue.hidden = false;
+      prologue.scrollIntoView({ behavior: 'instant', block: 'start' });
+      prologueSkip.focus({ preventScroll: true });
+    });
+    if (!prologue.hidden) prologueTimer = setTimeout(showCrawl, 3500);
+  };
+  const hideAbout = () => {
+    if (switching || !hero.hidden) return;
+    clearTimeout(prologueTimer);
+    const current = prologue.hidden ? intro : prologue;
+    transitionScreen(current, hero, () => {
+      intro.hidden = true;
+      prologue.hidden = true;
+      hero.hidden = false;
+      header.hidden = false;
+      visible = false;
+      updateCrawl();
+      hero.scrollIntoView({ behavior: 'instant', block: 'start' });
+      aboutTrigger.focus({ preventScroll: true });
+    });
+  };
+  aboutButton.addEventListener('click', () => showAbout(aboutButton));
+  document.querySelectorAll('a[href="#about"]').forEach(link => {
+    link.addEventListener('click', event => {
+      event.preventDefault();
+      showAbout(link);
+    });
+  });
+  backButton.addEventListener('click', hideAbout);
+  prologueBack.addEventListener('click', hideAbout);
+  prologueSkip.addEventListener('click', showCrawl);
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && hero.hidden) hideAbout();
+  });
+  if (window.location.hash === '#about') showAbout();
+</script>
+
+<footer class="site-footer">
+  <img class="site-footer__logo" src="{{ '/assets/images/horizontal-logo.svg' | relative_url }}" alt="沖縄Ruby会議03" width="210" height="43">
+  <p>沖縄Ruby会議03 Teamによるこの作品は、クリエイティブ・コモンズ 表示 4.0 国際ライセンスの下で提供されています。</p>
+</footer>

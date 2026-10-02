@@ -1,0 +1,61 @@
+---
+layout: default
+title: スタッフ
+description: 沖縄Ruby会議03をつくるスタッフメンバーをご紹介します。
+body_class: staff-page
+permalink: /staff/
+published: false
+---
+
+<header class="site-header staff-header">
+  <a class="site-logo" href="{{ '/' | relative_url }}" aria-label="沖縄Ruby会議03 トップへ">
+    <img class="site-logo__image" src="{{ '/assets/images/horizontal-logo.svg' | relative_url }}" alt="沖縄Ruby会議03">
+  </a>
+  <nav class="site-nav" aria-label="メインナビゲーション">
+    <a href="{{ '/' | relative_url }}">トップ</a>
+    <a href="#crew">スタッフ一覧</a>
+  </nav>
+</header>
+
+<main>
+  <section class="staff-section" id="crew" aria-labelledby="crew-title">
+    <div class="staff-section__heading">
+      <div>
+        <p class="staff-section__label">CAST &amp; CREW</p>
+        <h2 id="crew-title">Meet the team</h2>
+      </div>
+      <p class="staff-section__note">このページの氏名・プロフィールはテストデータです。</p>
+    </div>
+
+    <div class="film-strip">
+      <div class="film-strip__frames">
+        {% for member in site.data.staff %}
+          <article class="staff-card staff-card--{{ member.tone }}">
+            <div class="staff-card__portrait" aria-hidden="true">
+              <span>{{ member.initials }}</span>
+            </div>
+            <div class="staff-card__body">
+              <p class="staff-card__role">{{ member.role }}</p>
+              <h3>{{ member.name }}</h3>
+              <p class="staff-card__roman">{{ member.roman }}</p>
+              <p class="staff-card__bio">{{ member.bio }}</p>
+              <p class="staff-card__handle">{{ member.handle }}</p>
+            </div>
+            <span class="staff-card__frame" aria-hidden="true">0{{ forloop.index }}</span>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="staff-ending" aria-label="スタッフ募集のお知らせ">
+    <p>TO BE CONTINUED...</p>
+    <h2>一緒に、この会議を<br>つくりませんか？</h2>
+    <span>スタッフに関する情報は近日公開予定です。</span>
+  </section>
+</main>
+
+<footer class="site-footer staff-footer">
+  <img class="site-footer__logo" src="{{ '/assets/images/horizontal-logo.svg' | relative_url }}" alt="沖縄Ruby会議03" width="210" height="43">
+  <p>沖縄Ruby会議03 Teamによるこの作品は、クリエイティブ・コモンズ 表示 4.0 国際ライセンスの下で提供されています。</p>
+</footer>

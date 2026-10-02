@@ -1,0 +1,21 @@
+# ポスター表示用の仮名。正式なスタッフ決定後に差し替える。
+- role: 実行委員長
+  name: 山田太郎
+- role: 企画
+  name: 佐藤花子
+- role: 運営
+  name: 鈴木一郎
+- role: 広報
+  name: 高橋美咲
+- role: 協賛
+  name: 田中健太
+- role: 会場
+  name: 伊藤さくら
+- role: 意匠
+  name: 渡辺直人
+- role: 運営
+  name: ruby_taro
+- role: 広報
+  name: mika_dev
+- role: 配信
+  name: shima_codes

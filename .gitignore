@@ -1,8 +1,14 @@
-_site
-.sass-cache
-.jekyll-cache
+_site/
+.jekyll-cache/
 .jekyll-metadata
-vendor
-
-# https://docs.github.com/ja/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll
-Gemfile.lock
+vendor/
+node_modules/
+assets/css/application.css
+.DS_Store
+.bundle/
+_untrack/
+*.ai
+*.psd
+.env
+.env.*
+!.env.example

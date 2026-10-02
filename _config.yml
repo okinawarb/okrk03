@@ -1,3 +1,18 @@
 title: 沖縄Ruby会議03
-baseurl: /okrk03
-url: https://ruby.okinawa
+description: Rubyと出会い、人とつながる。沖縄でひらく、地域Ruby会議。
+lang: ja
+timezone: Asia/Tokyo
+url: ""
+baseurl: ""
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - Procfile
+  - README.md
+  - node_modules
+  - package-lock.json
+  - package.json
+  - assets/css/main.css
+  - assets/css/tailwind.css
+  - メインビジュアルロゴ.svg

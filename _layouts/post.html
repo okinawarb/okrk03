@@ -1,0 +1,25 @@
+---
+layout: default
+body_class: news-page
+---
+
+<header class="site-header staff-header">
+  <a class="site-logo" href="{{ '/' | relative_url }}" aria-label="沖縄Ruby会議03 トップへ">
+    <img class="site-logo__image" src="{{ '/assets/images/horizontal-logo.svg' | relative_url }}" alt="沖縄Ruby会議03">
+  </a>
+  <nav aria-label="記事ナビゲーション"><a href="{{ '/#news' | relative_url }}">お知らせ一覧へ</a></nav>
+</header>
+<main class="news-post">
+  <article>
+    <p class="section-label">NEWS</p>
+    <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%Y.%m.%d' }}</time>
+    <h1>{{ page.title | escape }}</h1>
+    <img class="news-post__image" src="{{ page.thumbnail | default: '/assets/images/news/site-open.webp' | relative_url }}" alt="" width="960" height="480">
+    <div class="news-post__body">{{ content }}</div>
+  </article>
+  <a class="news-post__back" href="{{ '/#news' | relative_url }}">{% include back-icon.svg %} お知らせ一覧へ</a>
+</main>
+<footer class="site-footer">
+  <img class="site-footer__logo" src="{{ '/assets/images/horizontal-logo.svg' | relative_url }}" alt="沖縄Ruby会議03" width="210" height="43">
+  <p>沖縄Ruby会議03 Teamによるこの作品は、クリエイティブ・コモンズ 表示 4.0 国際ライセンスの下で提供されています。</p>
+</footer>
