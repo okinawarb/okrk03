@@ -1,0 +1,63 @@
+- name: 安里 ルビー
+  roman: Ruby Asato
+  role: 実行委員長
+  handle: "@ruby_asato"
+  initials: RA
+  tone: ruby
+  bio: Rubyと映画館が好き。最高の一日を上映するため、チーム全体の進行を担当しています。
+
+- name: 島袋 レン
+  roman: Ren Shimabukuro
+  role: プログラム
+  handle: "@ren_codes"
+  initials: RS
+  tone: ocean
+  bio: トーク募集と当日のタイムテーブルを担当。心に残る技術トークをお届けします。
+
+- name: 宮城 ミナ
+  roman: Mina Miyagi
+  role: デザイン
+  handle: "@mina_design"
+  initials: MM
+  tone: gold
+  bio: Webサイトと会場装飾を担当。映画のようにわくわくする体験を設計しています。
+
+- name: 知念 カイ
+  roman: Kai Chinen
+  role: 会場
+  handle: "@kai_chinen"
+  initials: KC
+  tone: blue
+  bio: 桜坂劇場との調整と当日の会場運営を担当。快適な上映、ではなく開催を支えます。
+
+- name: 比嘉 サクラ
+  roman: Sakura Higa
+  role: 広報
+  handle: "@sakura_pr"
+  initials: SH
+  tone: coral
+  bio: SNSとニュースを通じて、沖縄Ruby会議03の最新情報を発信します。
+
+- name: 玉城 ジン
+  roman: Jin Tamaki
+  role: スポンサー
+  handle: "@jin_tamaki"
+  initials: JT
+  tone: green
+  bio: スポンサーのみなさまと一緒に、地域のRubyコミュニティを盛り上げます。
+
+- name: 仲村 ユイ
+  roman: Yui Nakamura
+  role: 参加者サポート
+  handle: "@yui_support"
+  initials: YN
+  tone: violet
+  bio: 受付と参加者案内を担当。初参加の方にも楽しんでもらえる場をつくります。
+
+- name: 金城 ソラ
+  roman: Sora Kinjo
+  role: 配信・音響
+  handle: "@sora_av"
+  initials: SK
+  tone: amber
+  bio: 映像、音響、配信を担当。映画館ならではの迫力でトークをお届けします。

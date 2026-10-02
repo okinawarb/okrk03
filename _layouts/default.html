@@ -46,10 +46,18 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/images/favicon-32x32.png' | relative_url }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/images/favicon-16x16.png' | relative_url }}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/images/apple-touch-icon.png' | relative_url }}">
+    {% assign body_class = page.body_class | default: layout.body_class %}
+    {% if body_class == 'home-page' or body_class == 'staff-page' or body_class == 'sponsorship-page' %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ '/assets/css/application.css' | relative_url }}">
+    {% else %}
     <link rel="stylesheet" href="{{ '/assets/css/teaser.css' | relative_url }}">
+    {% endif %}
   </head>
-  <body class="teaser-page {{ page.body_class | default: layout.body_class }}">
+  <body class="{% unless body_class == 'home-page' or body_class == 'staff-page' or body_class == 'sponsorship-page' %}teaser-page {% endunless %}{{ body_class }}">
     {{ content }}
-    {% unless page.hide_footer %}{% include footer.html %}{% endunless %}
+    {% unless page.hide_footer or body_class == 'home-page' or body_class == 'staff-page' or body_class == 'sponsorship-page' %}{% include footer.html %}{% endunless %}
   </body>
 </html>

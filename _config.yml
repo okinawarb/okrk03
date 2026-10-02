@@ -29,6 +29,11 @@ exclude:
   - flake.nix
   - flake.lock
   - gemset.nix
-  - assets/css/application.css
   - "*.ai"
   - "*.psd"
+  - Procfile
+  - package-lock.json
+  - package.json
+  - assets/css/main.css
+  - assets/css/tailwind.css
+  - メインビジュアルロゴ.svg

@@ -1,15 +1,16 @@
-# 沖縄Ruby会議03 ティザーサイト
+# 沖縄Ruby会議03 本リリースサイト
 
-GitHub Pages対応のJekyllサイトです。黒背景のティザー、スポンサー募集要項、お知らせ一覧・記事ページを生成します。
+Jekyll 4とTailwind CSSで構築した本リリース用サイトです。最新のスポンサー募集要項・お知らせ・404ページも含みます。
 
 ## ローカルで表示
 
 ```sh
 bundle install
-bundle exec jekyll serve --host 127.0.0.1 --port 4000
+npm ci
+bundle exec foreman start
 ```
 
-http://127.0.0.1:4000/okrk03/ を開きます。CSSは `assets/css/teaser.css` を直接編集します。Node.jsやTailwindのビルドは不要です。
+http://127.0.0.1:4000/okrk03/ を開きます。トップのCSSは `assets/css/main.css`、お知らせ・募集要項・404のCSSは `assets/css/teaser.css` を編集します。ForemanがJekyllとTailwindの自動ビルドを起動します。
 
 ## お知らせを書く
 
@@ -30,7 +31,7 @@ description: 記事の概要をここに書きます。
 [募集要項]({{ '/sponsors/' | relative_url }})
 ```
 
-レイアウトは自動設定されます。記事は `/okrk03/news/sponsor-news/` に生成され、トップに最新3件、`/okrk03/news/` に全件が新しい順で表示されます。未来の日付の記事は通常のビルドでは表示されず、その日以降の再ビルド時に公開されます。
+レイアウトは自動設定されます。記事は `/okrk03/news/sponsor-news/` に生成され、トップに最新6件、`/okrk03/news/` に全件が新しい順で表示されます。未来の日付の記事は通常のビルドでは表示されず、その日以降の再ビルド時に公開されます。
 
 画像は `assets/images/news/` に置き、`![画像の説明]({{ '/assets/images/news/example.png' | relative_url }})` のように参照します。
 
@@ -69,7 +70,7 @@ bundle exec jekyll serve --drafts --host 127.0.0.1 --port 4000
 正規URL（canonical）とOGP・Xカードは共通レイアウトから出力します。記事には公開日時と登録済みの著者名も出力します。サイトマップは `/okrk03/sitemap.xml` に自動生成され、404ページは検索対象とサイトマップから除外します。
 
 ```sh
-bundle exec jekyll build
+npm run build
 ```
 
-生成先は `_site/` です。`gh-pages` へのマージ後にGitHub Pagesがビルドし、https://ruby.okinawa/okrk03/ に公開します。
+生成先は `_site/` です。本ブランチはJekyll 4とTailwindのビルドが必要です。公開前にGitHub Pagesのビルド手順を対応させてください。公開先は https://ruby.okinawa/okrk03/ です。

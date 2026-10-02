@@ -1,0 +1,22 @@
+---
+layout: default
+---
+<header class="site-header staff-header">
+  <a class="site-logo" href="{{ '/' | relative_url }}" aria-label="沖縄Ruby会議03 トップへ">
+    <img class="site-logo__image" src="{{ '/assets/images/horizontal-logo.svg' | relative_url }}" alt="沖縄Ruby会議03">
+  </a>
+  <a class="sponsorship-home" href="{{ '/' | relative_url }}">トップへ戻る</a>
+</header>
+<main class="sponsorship">
+  <header class="sponsorship__header">
+    <h1>スポンサー募集要項</h1>
+  </header>
+  <article class="sponsorship__body">
+    {{ content | replace: '<table>', '<div class="sponsorship__table" role="region" aria-label="募集要項の表" tabindex="0"><table>' | replace: '</table>', '</table></div>' }}
+  </article>
+  <a class="sponsorship__back" href="{{ '/' | relative_url }}">{% include back-icon.svg %} トップへ戻る</a>
+</main>
+<footer class="site-footer">
+  <img class="site-footer__logo" src="{{ '/assets/images/horizontal-logo.svg' | relative_url }}" alt="沖縄Ruby会議03" width="210" height="43">
+  <p>沖縄Ruby会議03 Teamによるこの作品は、クリエイティブ・コモンズ 表示 4.0 国際ライセンスの下で提供されています。</p>
+</footer>
