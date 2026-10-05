@@ -1,4 +1,98 @@
 
+* { box-sizing: border-box; }
+.teaser-page { margin: 0; background: #000; color: #d6b36b; }
+.teaser-page a {
+  transition: color .25s ease, background-color .25s ease, border-color .25s ease;
+}
+.teaser {
+  min-height: 100svh;
+  padding: clamp(20px, 3svh, 32px) 20px;
+  text-align: center;
+}
+.teaser__visual { width: min(620px, calc((100svh - 250px) * .9565)); max-width: calc(100vw - 4rem); margin: 0 auto; }
+.teaser__visual img { display: block; width: 100%; height: auto; }
+.teaser__details {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: clamp(8px, 2vw, 24px);
+  margin-top: clamp(20px, 3svh, 32px);
+  white-space: nowrap;
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", "Noto Serif JP", serif;
+}
+.teaser__opening { margin: 0; font-size: clamp(14px, 3.3vw, 28px); letter-spacing: .12em; }
+.teaser__date { margin: 0; font-size: clamp(14px, 3.8vw, 32px); font-weight: 700; letter-spacing: .02em; }
+.teaser__date span { display: inline-block; font-size: .75em; }
+.teaser__venue { margin: 0; font-size: clamp(14px, 3.3vw, 28px); letter-spacing: .06em; }
+.teaser__venue a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: .3em; }
+.teaser__venue a:hover { color: #f4dc9d; }
+.teaser__venue a:focus-visible { outline: 2px solid currentColor; outline-offset: 8px; }
+.teaser__sponsor {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  min-height: 48px;
+  margin-top: 28px;
+  padding: 12px 28px;
+  border: 1px solid #d6b36b;
+  color: #d6b36b;
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-decoration: none;
+}
+.teaser__sponsor:hover { background: #d6b36b; color: #000; }
+.teaser-access { max-width: 620px; margin: 56px auto 16px; padding-top: 32px; border-top: 1px solid #493c24; font-family: sans-serif; line-height: 1.9; }
+.teaser-access h2 { margin: 0 0 20px; font-size: 15px; letter-spacing: .16em; }
+.teaser-access p { margin: 10px 0; color: #c5bdad; font-size: 14px; }
+.teaser-access .teaser-access__lead { color: #d6b36b; font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; font-size: clamp(19px, 3vw, 26px); font-weight: 700; }
+.teaser-access address { color: #c5bdad; font-size: 13px; font-style: normal; }
+.teaser-access__links { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 28px; margin-top: 20px; font-size: 13px; }
+.teaser-access a { color: #d6b36b; text-underline-offset: 4px; }
+.teaser-access a:hover { color: #f4dc9d; }
+.teaser-access a:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; }
+.teaser__sponsor:focus-visible, .teaser-footer a:focus-visible { outline: 2px solid #d6b36b; outline-offset: 5px; }
+.teaser-footer { padding: 28px 24px 32px; color: #a89e89; text-align: center; }
+.teaser-footer p { max-width: 880px; margin: 0 auto; font-family: sans-serif; font-size: 11px; line-height: 1.9; }
+.teaser-footer a { color: inherit; text-underline-offset: 3px; }
+.teaser-footer a:hover { color: #d6b36b; }
+@media (prefers-reduced-motion: reduce) {
+  .teaser-page a { transition: none; }
+}
+
+.sponsor-page { color: #e1d9c9; font-family: sans-serif; }
+.sponsor-page a { color: #d6b36b; text-underline-offset: 4px; }
+.sponsor-page a:hover { color: #f4dc9d; }
+.sponsor-page a:focus-visible, .sponsor-table:focus-visible { outline: 2px solid #d6b36b; outline-offset: 5px; }
+.sponsor-header { display: flex; align-items: center; justify-content: space-between; gap: 20px; max-width: 1160px; margin: auto; padding: 28px 24px; font-size: 12px; }
+.sponsor-header__brand { font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; font-size: 20px; font-weight: 700; text-decoration: none; }
+.sponsor-header__brand img { display: block; width: clamp(150px, 18vw, 200px); height: auto; }
+.sponsor-main { max-width: 1100px; margin: 0 auto; padding: 40px 24px 64px; }
+.sponsor-main h1 { margin: 0 0 56px; padding-bottom: 36px; border-bottom: 1px solid #493c24; color: #d6b36b; font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; font-size: clamp(28px, 5vw, 48px); text-align: center; }
+.sponsor-body { font-size: 15px; line-height: 1.9; overflow-wrap: anywhere; }
+.sponsor-body h2 { margin: 56px 0 24px; padding-left: 16px; border-left: 2px solid #d6b36b; color: #d6b36b; font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; font-size: clamp(23px, 3vw, 30px); }
+.sponsor-body h3 { margin: 32px 0 16px; color: #d6b36b; font-size: 18px; }
+.sponsor-body ul { padding-left: 1.5em; }
+.sponsor-table { overflow-x: auto; margin: 24px 0; border: 1px solid #493c24; }
+.sponsor-table table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.sponsor-table th, .sponsor-table td { padding: 16px 20px; text-align: left; vertical-align: top; }
+.sponsor-table th { background: #201b12; color: #d6b36b; white-space: nowrap; }
+.sponsor-table td { border-top: 1px solid #493c24; }
+.sponsor-table td:first-child { min-width: 130px; }
+.sponsor-table table:has(th:nth-child(6)) { min-width: 980px; }
+.sponsor-table td ul { margin: 0; }
+.sponsor-table tbody tr:nth-child(even) { background: #0e0d0a; }
+.sponsor-body .teaser__sponsor { margin-top: 8px; }
+.sponsor-page .teaser__sponsor:hover { color: #000; }
+.sponsor-back { display: inline-block; margin-top: 48px; font-size: 14px; }
+@media (max-width: 600px) {
+  .sponsor-header__brand { font-size: 16px; }
+  .sponsor-header, .sponsor-main { padding-right: 20px; padding-left: 20px; }
+  .sponsor-table th, .sponsor-table td { padding: 12px; }
+}
+
 .error-page {
   margin: 10px auto;
   max-width: 600px;
