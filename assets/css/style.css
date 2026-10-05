@@ -44,6 +44,8 @@
   text-decoration: none;
 }
 .teaser__sponsor:hover { background: #d6b36b; color: #000; }
+.teaser > .teaser__sponsor { background-color: #b52c2f; }
+.teaser > .teaser__sponsor:hover { background-color: #922326; color: #f4dc9d; }
 .teaser-access { max-width: 620px; margin: 56px auto 16px; padding-top: 32px; border-top: 1px solid #493c24; font-family: sans-serif; line-height: 1.9; }
 .teaser-access h2 { margin: 0 0 20px; font-size: 15px; letter-spacing: .16em; }
 .teaser-access p { margin: 10px 0; color: #c5bdad; font-size: 14px; }
