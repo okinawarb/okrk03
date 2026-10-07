@@ -1,3 +1,28 @@
 title: 沖縄Ruby会議03
 baseurl: /okrk03
 url: https://ruby.okinawa
+description: 沖縄Ruby会議03、2027年2月20日（土）桜坂劇場にて開幕。
+lang: ja
+timezone: Asia/Tokyo
+permalink: /news/:title/
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      body_class: sponsor-page
+exclude:
+  - AGENTS.md
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - node_modules
+  - _untrack
+  - flake.nix
+  - flake.lock
+  - gemset.nix
+  - assets/css/application.css
+  - "*.ai"
+  - "*.psd"

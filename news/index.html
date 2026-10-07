@@ -1,0 +1,16 @@
+---
+layout: default
+body_class: sponsor-page
+title: お知らせ
+description: 沖縄Ruby会議03の開催に向けたお知らせをお届けします。
+---
+{% include header.html %}
+<main class="sponsor-main news-index">
+  <h1>お知らせ</h1>
+  {% if site.posts.size > 0 %}
+  {% include news-list.html posts=site.posts %}
+  {% else %}
+  <p class="news-empty">開催に向けたお知らせを、こちらでお届けします。</p>
+  {% endif %}
+  <a class="sponsor-back" href="{{ '/' | relative_url }}">トップへ戻る</a>
+</main>

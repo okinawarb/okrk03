@@ -1,21 +1,10 @@
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>スポンサー募集要項 | 沖縄Ruby会議03</title>
-    <meta name="description" content="沖縄Ruby会議03のスポンサープラン、特典、スケジュール、お申し込み方法をご案内します。">
-    <meta name="theme-color" content="#000000">
-    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png">
-    <link rel="stylesheet" href="../assets/css/style.css?v=20261002-sponsors">
-  </head>
-  <body class="teaser-page sponsor-page">
-    <header class="sponsor-header">
-      <a class="sponsor-header__brand" href="../"><img src="../assets/images/header-logo.svg" alt="沖縄Ruby会議03" width="200" height="41"></a>
-      <a href="../">トップへ戻る</a>
-    </header>
+---
+layout: default
+body_class: sponsor-page
+title: スポンサー募集要項
+description: 沖縄Ruby会議03のスポンサープラン、特典、スケジュール、お申し込み方法をご案内します。
+---
+{% include header.html %}
     <main class="sponsor-main">
       <h1>スポンサー募集要項</h1>
       <article class="sponsor-body">
@@ -213,10 +202,5 @@
 </ul>
 
       </article>
-      <a class="sponsor-back" href="../">トップへ戻る</a>
+      <a class="sponsor-back" href="{{ '/' | relative_url }}">トップへ戻る</a>
     </main>
-    <footer class="teaser-footer">
-      <p>当サイトのコンテンツは、沖縄Ruby会議03 Teamにより、<a href="https://creativecommons.org/licenses/by/4.0/deed.ja" target="_blank" rel="noopener noreferrer">クリエイティブ・コモンズ 表示 4.0 国際ライセンス（CC BY 4.0）</a>の下で提供されています。</p>
-    </footer>
-  </body>
-</html>

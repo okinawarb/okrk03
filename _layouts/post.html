@@ -1,0 +1,16 @@
+---
+layout: default
+body_class: sponsor-page
+---
+{% include header.html %}
+<main class="sponsor-main news-post">
+  <article>
+    <p class="news-post__date"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%Y.%m.%d' }}</time></p>
+    <h1>{{ page.title | escape }}</h1>
+    {% if page.thumbnail %}
+    <img class="news-post__thumbnail" src="{{ page.thumbnail | relative_url }}" alt="{{ page.title | escape }}" width="1200" height="630">
+    {% endif %}
+    <div class="sponsor-body news-post__body">{{ content }}</div>
+  </article>
+  <a class="sponsor-back" href="{{ '/news/' | relative_url }}">お知らせ一覧へ</a>
+</main>

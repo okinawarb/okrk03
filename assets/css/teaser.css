@@ -1,11 +1,25 @@
 
 * { box-sizing: border-box; }
-.teaser-page { margin: 0; background: #000; color: #d6b36b; }
-.teaser-page a {
+html { font-size: 16px; }
+body { font-size: 1rem; }
+.teaser-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0;
+  background-color: #000;
+  background-image: linear-gradient(rgb(0 0 0 / 85%), rgb(0 0 0 / 85%)), url('../images/bg_2.png');
+  background-repeat: repeat;
+  background-size: auto, 180px 180px;
+  color: #d6b36b;
+}
+.teaser-page > * { flex-shrink: 0; }
+.teaser-page > header, .teaser-page > main { width: 100%; }
+.teaser-page a, .teaser__actions .teaser__sponsor {
   transition: color .25s ease, background-color .25s ease, border-color .25s ease;
 }
 .teaser {
-  min-height: 100svh;
   padding: clamp(20px, 3svh, 32px) 20px;
   text-align: center;
 }
@@ -13,17 +27,15 @@
 .teaser__visual img { display: block; width: 100%; height: auto; }
 .teaser__details {
   display: flex;
-  align-items: baseline;
-  justify-content: center;
-  gap: clamp(8px, 2vw, 24px);
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
   margin-top: clamp(20px, 3svh, 32px);
-  white-space: nowrap;
   font-family: "Yu Mincho", "Hiragino Mincho ProN", "Noto Serif JP", serif;
 }
-.teaser__opening { margin: 0; font-size: clamp(14px, 3.3vw, 28px); letter-spacing: .12em; }
 .teaser__date { margin: 0; font-size: clamp(14px, 3.8vw, 32px); font-weight: 700; letter-spacing: .02em; }
 .teaser__date span { display: inline-block; font-size: .75em; }
-.teaser__venue { margin: 0; font-size: clamp(14px, 3.3vw, 28px); letter-spacing: .06em; }
+.teaser__venue { margin: 0; font-size: clamp(12px, 3vw, 22px); line-height: 1.8; }
 .teaser__venue a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: .3em; }
 .teaser__venue a:hover { color: #f4dc9d; }
 .teaser__venue a:focus-visible { outline: 2px solid currentColor; outline-offset: 8px; }
@@ -44,41 +56,59 @@
   text-decoration: none;
 }
 .teaser__sponsor:hover { background: #d6b36b; color: #000; }
-.teaser > .teaser__sponsor { background-color: #b52c2f; }
-.teaser > .teaser__sponsor:hover { background-color: #922326; color: #f4dc9d; }
-.teaser-access { max-width: 620px; margin: 56px auto 16px; padding-top: 32px; border-top: 1px solid #493c24; font-family: sans-serif; line-height: 1.9; }
-.teaser-access h2 { margin: 0 0 20px; font-size: 15px; letter-spacing: .16em; }
-.teaser-access p { margin: 10px 0; color: #c5bdad; font-size: 14px; }
-.teaser-access .teaser-access__lead { color: #d6b36b; font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; font-size: clamp(19px, 3vw, 26px); font-weight: 700; }
-.teaser-access address { color: #c5bdad; font-size: 13px; font-style: normal; }
-.teaser-access__links { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 28px; margin-top: 20px; font-size: 13px; }
-.teaser-access a { color: #d6b36b; text-underline-offset: 4px; }
-.teaser-access a:hover { color: #f4dc9d; }
-.teaser-access a:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; }
+.teaser__actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; max-width: 400px; margin: 28px auto 0; }
+.teaser__actions .teaser__sponsor { margin-top: 0; padding-inline: clamp(8px, 3vw, 28px); font-size: clamp(12px, 4vw, 16px); white-space: nowrap; background-color: #b52c2f; }
+.teaser__actions .teaser__sponsor:hover { background-color: #922326; color: #f4dc9d; }
+.teaser-news { max-width: 1000px; margin: 56px auto 0; padding-top: 32px; border-top: 1px solid #493c24; font-family: sans-serif; }
+.teaser-news h2 { margin: 0 0 24px; font-size: 15px; letter-spacing: .16em; }
+.news-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin: 0; padding: 0; list-style: none; text-align: left; }
+.news-list li { min-width: 0; }
+.news-list .news-card { display: flex; flex-direction: column; height: 100%; overflow: hidden; border: 1px solid #493c24; border-radius: 12px; background: #0b0906; color: #e1d9c9; text-decoration: none; }
+.news-card__image { display: block; width: 100%; height: auto; aspect-ratio: 1200 / 630; object-fit: contain; background: #000; }
+.news-card__body { padding: 20px; }
+.news-list time { display: block; color: #a89e89; font-size: 12px; }
+.news-card__title { margin: 10px 0 0; font-size: 16px; line-height: 1.8; overflow-wrap: anywhere; }
+.news-list .news-card:hover { color: #f4dc9d; background-color: #211a10; border-color: #d6b36b; }
+.news-list .news-card:focus-visible { outline: 2px solid #d6b36b; outline-offset: 5px; }
+.news-all { display: inline-block; margin-top: 24px; color: #d6b36b; font-size: 13px; text-underline-offset: 4px; }
+.news-empty { color: #a89e89; font-size: 14px; line-height: 1.9; text-align: center; }
+.teaser-news a:focus-visible { outline: 2px solid #d6b36b; outline-offset: 5px; }
+.news-post, .news-index { max-width: 880px; }
+.news-post__date { margin: 0 0 20px; color: #a89e89; font-size: 13px; }
+.sponsor-main.news-post h1 { text-align: left; font-size: clamp(26px, 4vw, 40px); line-height: 1.6; overflow-wrap: anywhere; }
+.news-post__body img { max-width: 100%; height: auto; }
+.news-post__thumbnail { display: block; width: 100%; height: auto; aspect-ratio: 1200 / 630; object-fit: contain; margin-bottom: 32px; border-radius: 12px; background: #000; }
+.news-post__body pre { overflow-x: auto; padding: 20px; background: #17140e; }
+@media (max-width: 900px) {
+  .news-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .news-list { grid-template-columns: 1fr; }
+}
 .teaser__sponsor:focus-visible, .teaser-footer a:focus-visible { outline: 2px solid #d6b36b; outline-offset: 5px; }
-.teaser-footer { padding: 28px 24px 32px; color: #a89e89; text-align: center; }
+.teaser-footer { margin-top: auto; padding: 28px 24px 32px; color: #a89e89; text-align: center; }
 .teaser-footer p { max-width: 880px; margin: 0 auto; font-family: sans-serif; font-size: 11px; line-height: 1.9; }
 .teaser-footer a { color: inherit; text-underline-offset: 3px; }
 .teaser-footer a:hover { color: #d6b36b; }
 @media (prefers-reduced-motion: reduce) {
-  .teaser-page a { transition: none; }
+  .teaser-page a, .teaser__actions .teaser__sponsor { transition: none; }
 }
 
 .sponsor-page { color: #e1d9c9; font-family: sans-serif; }
 .sponsor-page a { color: #d6b36b; text-underline-offset: 4px; }
 .sponsor-page a:hover { color: #f4dc9d; }
 .sponsor-page a:focus-visible, .sponsor-table:focus-visible { outline: 2px solid #d6b36b; outline-offset: 5px; }
-.sponsor-header { display: flex; align-items: center; justify-content: space-between; gap: 20px; max-width: 1160px; margin: auto; padding: 28px 24px; font-size: 12px; }
+.sponsor-header { display: flex; align-items: center; justify-content: space-between; gap: 20px; max-width: 1160px; margin: 0 auto; padding: 28px 24px; font-size: 12px; }
 .sponsor-header__brand { font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; font-size: 20px; font-weight: 700; text-decoration: none; }
 .sponsor-header__brand img { display: block; width: clamp(150px, 18vw, 200px); height: auto; }
 .sponsor-main { max-width: 1100px; margin: 0 auto; padding: 40px 24px 64px; }
 .sponsor-main h1 { margin: 0 0 56px; padding-bottom: 36px; border-bottom: 1px solid #493c24; color: #d6b36b; font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; font-size: clamp(28px, 5vw, 48px); text-align: center; }
-.sponsor-body { font-size: 15px; line-height: 1.9; overflow-wrap: anywhere; }
+.sponsor-body { font-size: 1rem; line-height: 1.9; overflow-wrap: anywhere; }
 .sponsor-body h2 { margin: 56px 0 24px; padding-left: 16px; border-left: 2px solid #d6b36b; color: #d6b36b; font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; font-size: clamp(23px, 3vw, 30px); }
 .sponsor-body h3 { margin: 32px 0 16px; color: #d6b36b; font-size: 18px; }
 .sponsor-body ul { padding-left: 1.5em; }
 .sponsor-table { overflow-x: auto; margin: 24px 0; border: 1px solid #493c24; }
-.sponsor-table table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.sponsor-table table { width: 100%; border-collapse: collapse; font-size: 1rem; }
 .sponsor-table th, .sponsor-table td { padding: 16px 20px; text-align: left; vertical-align: top; }
 .sponsor-table th { background: #201b12; color: #d6b36b; white-space: nowrap; }
 .sponsor-table td { border-top: 1px solid #493c24; }
