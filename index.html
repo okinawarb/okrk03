@@ -1,0 +1,29 @@
+---
+layout: default
+---
+    <main class="teaser">
+      <h1 class="teaser__visual">
+        <img src="{{ '/assets/images/teaser-main-visual.svg' | relative_url }}" alt="沖縄Ruby会議03" width="858" height="897" fetchpriority="high">
+      </h1>
+      <div class="teaser__details">
+        <p class="teaser__date"><time datetime="2027-02-20">2027年2月20日<span>（土）</span></time></p>
+        <p class="teaser__venue">那覇・桜坂にある映画館、<a href="https://sakura-zaka.com/" target="_blank" rel="noopener noreferrer">桜坂劇場</a>で開幕</p>
+      </div>
+      <div class="teaser__actions">
+        {% if site.cfp_url %}
+        <a class="teaser__sponsor" href="{{ site.cfp_url | escape }}" target="_blank" rel="noopener noreferrer">プロポーザル募集</a>
+        {% else %}
+        <span class="teaser__sponsor" role="link" aria-disabled="true">プロポーザル募集</span>
+        {% endif %}
+        <a class="teaser__sponsor" href="{{ '/sponsors/' | relative_url }}">スポンサー募集</a>
+      </div>
+      <section class="teaser-news" aria-labelledby="news-title">
+        <h2 id="news-title">お知らせ</h2>
+        {% if site.posts.size > 0 %}
+        {% include news-list.html posts=site.posts limit=3 %}
+        <a class="news-all" href="{{ '/news/' | relative_url }}">お知らせ一覧へ</a>
+        {% else %}
+        <p class="news-empty">開催に向けたお知らせを、こちらでお届けします。</p>
+        {% endif %}
+      </section>
+    </main>
