@@ -18,7 +18,8 @@ http://127.0.0.1:4000/okrk03/ を開きます。CSSは `assets/css/teaser.css` �
 ```markdown
 ---
 title: スポンサー募集について
-thumbnail: /assets/images/teaser-top.svg
+author: machida
+thumbnail: /assets/images/teaser-main-visual.svg
 description: 記事の概要をここに書きます。
 ---
 
@@ -36,6 +37,17 @@ description: 記事の概要をここに書きます。
 カードのサムネイルは記事の `thumbnail` に画像パスを指定します。省略した場合はメインビジュアルを表示します。
 
 OGPサムネイルは **幅1200px × 高さ630px** で作成・書き出します。お知らせカードも同じ比率で表示します。画像ファイル自体の寸法を確認してください。
+
+### 著者を登録する
+
+`_data/authors.yml` に著者IDと表示名を登録します。`url` は任意で、設定すると表示名がプロフィールへのリンクになります。
+
+```yaml
+machida:
+  name: "@machida"
+```
+
+記事の先頭に `author: machida` のように著者IDを指定すると、記事ページの日付の横に「書いた人：@machida」と表示されます。著者の指定がない記事、または未登録のIDを指定した記事では著者欄を表示しません。下書きサンプルを使う際も、自分の著者IDに変更してください。
 
 ### 下書き
 

@@ -1,6 +1,7 @@
 ---
 title: お知らせのタイトル（下書きサンプル）
-thumbnail: /assets/images/teaser-top.svg
+author: machida
+thumbnail: /assets/images/teaser-main-visual.svg
 description: お知らせの概要をここに書きます。
 ---
 

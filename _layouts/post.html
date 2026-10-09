@@ -4,11 +4,21 @@ body_class: sponsor-page
 ---
 {% include header.html %}
 <main class="sponsor-main news-post">
-  <article>
-    <p class="news-post__date"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%Y.%m.%d' }}</time></p>
+  <article class="news-post__card">
+    <div class="news-post__meta">
+      <p class="news-post__date"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%Y.%m.%d' }}</time></p>
+      {% if page.author %}
+      {% assign author = site.data.authors[page.author] %}
+      {% if author %}
+      <p class="news-post__author">書いた人：{% if author.url %}<a href="{{ author.url | escape }}" rel="author">{{ author.name | escape }}</a>{% else %}<span>{{ author.name | escape }}</span>{% endif %}</p>
+      {% endif %}
+      {% endif %}
+    </div>
     <h1>{{ page.title | escape }}</h1>
     {% if page.thumbnail %}
-    <img class="news-post__thumbnail" src="{{ page.thumbnail | relative_url }}" alt="{{ page.title | escape }}" width="1200" height="630">
+    <div class="news-post__thumbnail">
+      <img src="{{ page.thumbnail | relative_url }}" alt="{{ page.title | escape }}" width="1200" height="630">
+    </div>
     {% endif %}
     <div class="sponsor-body news-post__body">{{ content }}</div>
   </article>
