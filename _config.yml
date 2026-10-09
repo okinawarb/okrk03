@@ -2,7 +2,12 @@ title: 沖縄Ruby会議03
 cfp_url: https://forms.gle/QE2YMfXjR5iT8yqL6
 baseurl: /okrk03
 url: https://ruby.okinawa
-description: 沖縄Ruby会議03、2027年2月20日（土）桜坂劇場にて開幕。
+description: 沖縄Ruby会議03は、2027年2月20日（土）に那覇の映画館・桜坂劇場で開催するRubyの地域会議です。プロポーザル・スポンサー企業を募集中。開催概要や最新のお知らせをご案内します。
+og_image: /assets/images/news/teaser-site-open.png
+og_image_alt: 沖縄Ruby会議03のハブとマングースを描いたメインビジュアル
+twitter_username: okinawarb
+plugins:
+  - jekyll-sitemap
 lang: ja
 timezone: Asia/Tokyo
 permalink: /news/:title/

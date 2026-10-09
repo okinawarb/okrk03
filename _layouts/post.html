@@ -10,7 +10,10 @@ body_class: sponsor-page
       {% if page.author %}
       {% assign author = site.data.authors[page.author] %}
       {% if author %}
-      <p class="news-post__author">{% if author.url %}<a href="{{ author.url | escape }}" rel="author">{{ author.name | escape }}</a>{% else %}<span>{{ author.name | escape }}</span>{% endif %}</p>
+      <p class="news-post__author">
+        {% if author.avatar %}<img class="news-post__avatar" src="{{ author.avatar | relative_url }}" alt="" width="32" height="32">{% endif %}
+        {% if author.url %}<a href="{{ author.url | escape }}" target="_blank" rel="author noopener noreferrer">{{ author.name | escape }}</a>{% else %}<span>{{ author.name | escape }}</span>{% endif %}
+      </p>
       {% endif %}
       {% endif %}
     </div>

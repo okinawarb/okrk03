@@ -45,6 +45,7 @@ OGPサムネイルは **幅1200px × 高さ630px** で作成・書き出しま�
 ```yaml
 machida:
   name: "@machida"
+  avatar: /assets/images/authors/machida.webp
 ```
 
 記事の先頭に `author: machida` のように著者IDを指定すると、記事ページの日付の横に「@machida」と表示されます。著者の指定がない記事、または未登録のIDを指定した記事では著者欄を表示しません。下書きサンプルを使う際も、自分の著者IDに変更してください。
@@ -60,6 +61,12 @@ bundle exec jekyll serve --drafts --host 127.0.0.1 --port 4000
 公開する際は `_posts/YYYY-MM-DD-slug.md` に移し、サンプル文言を実際の内容に置き換えます。下書きは通常のGitHub Pagesビルドには含まれません。
 
 ## ビルドと公開
+
+### 検索・SNS向けの設定
+
+各ページの `title`・`description` を検索結果とSNS共有用のメタ情報に使用します。共有画像は `og_image`、記事の `thumbnail`、`_config.yml` の `og_image` の順で選ばれます。共有画像は1200×630pxで用意してください。画像の説明は `og_image_alt` で指定できます。
+
+正規URL（canonical）とOGP・Xカードは共通レイアウトから出力します。記事には公開日時と登録済みの著者名も出力します。サイトマップは `/okrk03/sitemap.xml` に自動生成され、404ページは検索対象とサイトマップから除外します。
 
 ```sh
 bundle exec jekyll build

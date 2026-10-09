@@ -82,8 +82,10 @@ body { font-size: 1rem; }
   background: #0b0906;
   box-shadow: 0 16px 48px rgb(0 0 0 / 25%);
 }
-.news-post__meta { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 20px; margin-bottom: 20px; color: #a89e89; font-size: 13px; }
+.news-post__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px; margin-bottom: 20px; color: #a89e89; font-size: 13px; }
 .news-post__date, .news-post__author { margin: 0; }
+.news-post__author { display: inline-flex; align-items: center; gap: 8px; }
+.news-post__avatar { display: block; width: 32px; height: 32px; flex-shrink: 0; border-radius: 50%; object-fit: cover; }
 .sponsor-main.news-post h1 { text-align: left; font-family: sans-serif; font-size: clamp(26px, 4vw, 40px); line-height: 1.6; overflow-wrap: anywhere; }
 .news-post__body img { max-width: 100%; height: auto; }
 .news-post__photos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: 24px 0; }
