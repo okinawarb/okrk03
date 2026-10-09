@@ -10,7 +10,7 @@ body_class: sponsor-page
       {% if page.author %}
       {% assign author = site.data.authors[page.author] %}
       {% if author %}
-      <p class="news-post__author">書いた人：{% if author.url %}<a href="{{ author.url | escape }}" rel="author">{{ author.name | escape }}</a>{% else %}<span>{{ author.name | escape }}</span>{% endif %}</p>
+      <p class="news-post__author">{% if author.url %}<a href="{{ author.url | escape }}" rel="author">{{ author.name | escape }}</a>{% else %}<span>{{ author.name | escape }}</span>{% endif %}</p>
       {% endif %}
       {% endif %}
     </div>
