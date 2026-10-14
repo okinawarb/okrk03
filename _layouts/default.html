@@ -50,6 +50,6 @@
   </head>
   <body class="teaser-page {{ page.body_class | default: layout.body_class }}">
     {{ content }}
-    {% include footer.html %}
+    {% unless page.hide_footer %}{% include footer.html %}{% endunless %}
   </body>
 </html>
