@@ -148,15 +148,21 @@ body { font-size: 1rem; }
   .sponsor-table th, .sponsor-table td { padding: 12px; }
 }
 
-.error-page {
-  margin: 10px auto;
-  max-width: 600px;
-  text-align: center;
-
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
+.not-found-page { background: #000; }
+.error-page { position: relative; height: 100vh; height: 100dvh; margin: 0; }
+.error-page > img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.error-page::after { content: ""; position: absolute; inset: 0; background-color: rgb(0 0 0 / 20%); background-image: radial-gradient(circle, rgb(0 0 0 / 65%) 1.2px, transparent 1.5px); background-size: 3px 3px; pointer-events: none; }
+.error-page__message { position: absolute; z-index: 1; top: 50%; left: 50%; transform: translate(-50%, -50%); width: max-content; max-width: calc(100% - 40px); padding: 28px 32px; color: #fff; text-align: center; font-family: sans-serif; text-shadow: 0 2px 4px rgb(0 0 0 / 80%); }
+.error-page__message h1 { margin: 0; font-size: clamp(18px, 3vw, 28px); line-height: 1.7; }
+.error-page__character { animation: error-character-reveal 1ms step-end both; animation-delay: calc(350ms + var(--character-index) * 60ms); }
+@keyframes error-character-reveal {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
+@media (prefers-reduced-motion: reduce) {
+  .error-page__character { animation: none; }
+}
+
+.error-page__logo { position: absolute; z-index: 1; right: max(24px, env(safe-area-inset-right)); bottom: max(24px, env(safe-area-inset-bottom)); display: block; width: clamp(150px, 20vw, 200px); }
+.error-page__logo img { display: block; width: 100%; height: auto; filter: brightness(0) invert(1); }
+.error-page__logo:focus-visible { outline: 2px solid #fff; outline-offset: 8px; }

@@ -1,17 +1,21 @@
 ---
 permalink: /404.html
 layout: default
+body_class: not-found-page
+hide_footer: true
 title: ページが見つかりません
 description: お探しのページは見つかりませんでした。
 robots: noindex, follow
 sitemap: false
 ---
-<div class="error-page">
-  <header>
-    <h1>404</h1>
-  </header>
-  <main>
-    <p><strong>Page not found :(</strong></p>
-    <p>The requested page could not be found.</p>
-  </main>
-</div>
+<main class="error-page">
+  <img src="{{ '/assets/images/404.webp' | relative_url }}" alt="404 ページが見つかりません" width="1920" height="1152" fetchpriority="high">
+  <div class="error-page__message">
+    {% assign message = 'お探しのページは見つかりませんでした。' %}
+    {% assign message_characters = message | split: '' %}
+    <h1 aria-label="{{ message }}">{% for character in message_characters %}<span class="error-page__character" aria-hidden="true" style="--character-index: {{ forloop.index0 }}">{{ character | escape }}</span>{% endfor %}</h1>
+  </div>
+  <a class="error-page__logo" href="{{ '/' | relative_url }}">
+    <img src="{{ '/assets/images/header-logo.svg' | relative_url }}" alt="沖縄Ruby会議03" width="200" height="41">
+  </a>
+</main>
