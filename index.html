@@ -9,6 +9,14 @@ layout: default
         <p class="teaser__date"><time datetime="2027-02-20">2027年2月20日<span>（土）</span></time></p>
         <p class="teaser__venue">那覇・桜坂にある映画館、<a href="https://sakura-zaka.com/" target="_blank" rel="noopener noreferrer">桜坂劇場</a>で開幕</p>
       </div>
+      <section class="teaser-keynote" aria-labelledby="keynote-title">
+        <h2 id="keynote-title" class="teaser-keynote__label">基調講演</h2>
+        <a class="teaser-keynote__speaker" href="https://x.com/tompng" target="_blank" rel="noopener noreferrer">
+          <img src="{{ '/assets/images/speakers/tompng.webp' | relative_url }}" alt="" width="200" height="200" loading="lazy">
+          <span class="teaser-keynote__name">ぺん！</span>
+          <span class="teaser-keynote__handle">@tompng</span>
+        </a>
+      </section>
       <div class="teaser__actions">
         {% if site.cfp_url %}
         <a class="teaser__sponsor" href="{{ site.cfp_url | escape }}" target="_blank" rel="noopener noreferrer">プロポーザル募集</a>
