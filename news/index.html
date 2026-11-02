@@ -8,7 +8,7 @@ description: 沖縄Ruby会議03の開催に向けたお知らせをお届けし�
 <main class="sponsor-main news-index">
   <h1>お知らせ</h1>
   {% if site.posts.size > 0 %}
-  {% include news-list.html posts=site.posts %}
+  {% include news-list.html posts=site.posts heading_level=2 %}
   {% else %}
   <p class="news-empty">開催に向けたお知らせを、こちらでお届けします。</p>
   {% endif %}
