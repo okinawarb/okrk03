@@ -139,12 +139,19 @@ body { font-size: 1rem; }
 .sponsor-body ul { padding-left: 1.5em; }
 .sponsor-table { overflow-x: auto; margin: 24px 0; border: 1px solid #493c24; }
 .sponsor-table table { width: 100%; border-collapse: collapse; font-size: 1rem; }
-.sponsor-table th, .sponsor-table td { padding: 16px 20px; text-align: left; vertical-align: top; }
-.sponsor-table th { background: #201b12; color: #d6b36b; white-space: nowrap; }
+.sponsor-table th, .sponsor-table td { padding: 16px 20px; text-align: left; vertical-align: middle; }
+.sponsor-table th { background: #201b12; color: #d6b36b; white-space: nowrap; text-align: center; }
 .sponsor-table td { border-top: 1px solid #493c24; }
+.sponsor-table th + th, .sponsor-table td + td { border-left: 1px solid rgb(73 60 36 / 50%); }
+.sponsor-table__capacity { white-space: nowrap; }
+.sponsor-table td.sponsor-table__plan, .sponsor-table td.sponsor-table__price, .sponsor-table td.sponsor-table__availability { text-align: center; }
+.sponsor-table__circle { display: block; width: 24px; height: 24px; margin-inline: auto; }
 .sponsor-table td:first-child { min-width: 130px; }
+.sponsor-table--overview table { table-layout: fixed; }
+.sponsor-table--overview th:first-child, .sponsor-table--overview td:first-child { box-sizing: border-box; width: 152px; min-width: 0; }
 .sponsor-table table:has(th:nth-child(6)) { min-width: 980px; }
 .sponsor-table td ul { margin: 0; }
+.sponsor-table td li + li { margin-top: .5em; }
 .sponsor-body tbody tr { background: rgb(0 0 0 / 20%); }
 .sponsor-table tbody tr:nth-child(even) { background: #0e0d0a; }
 .sponsor-body .teaser__sponsor { margin-top: 8px; }
@@ -154,6 +161,7 @@ body { font-size: 1rem; }
   .sponsor-header__brand { font-size: 16px; }
   .sponsor-header, .sponsor-main { padding-right: 20px; padding-left: 20px; }
   .sponsor-table th, .sponsor-table td { padding: 12px; }
+  .sponsor-table--overview th:first-child, .sponsor-table--overview td:first-child { width: 128px; }
 }
 
 .not-found-page { background: #000; }
