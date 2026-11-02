@@ -169,7 +169,7 @@ a, button {
   height: auto;
   min-height: 0;
   max-height: none;
-  aspect-ratio: 2 / 1;
+  aspect-ratio: 1200 / 630;
   padding: 0;
   background: #090806;
 }
@@ -216,7 +216,8 @@ a, button {
   bottom: calc(max(2%, 14px) + 48px);
   left: 50%;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: min(680px, calc(100% - 32px));
   gap: 16px;
   transform: translateX(-50%);
 }
@@ -259,7 +260,39 @@ a, button {
   font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
   text-shadow: 0 2px 6px #000, 0 0 16px #000;
 }
-.hero__credits--cast { right: 4%; left: auto; }
+.hero__credits--cast {
+  top: 22%;
+  right: 4%;
+  left: auto;
+  flex-direction: column;
+  gap: 32px;
+}
+.hero__cast-row {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+  gap: clamp(12px, 1.2vw, 24px);
+  width: 100%;
+}
+.hero__keynote-label { font-size: 12px; letter-spacing: .16em; }
+.hero__keynote {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 0 12px 12px;
+  text-decoration: none;
+}
+.hero__keynote-name {
+  writing-mode: vertical-rl;
+  font-size: clamp(32px, 3.4vw, 56px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: .16em;
+}
+.hero__keynote-handle { font-size: 16px; letter-spacing: .04em; }
+.hero__keynote:hover { color: #ffe36a; }
+.hero__keynote:focus-visible { outline: 2px solid #ffe36a; outline-offset: 5px; }
 .poster-cast {
   display: flex;
   flex: 1;
@@ -422,6 +455,17 @@ a, button {
   letter-spacing: .015em;
   text-shadow: 0 0 10px rgba(40, 150, 220, .25);
 }
+.prologue__subtitle {
+  position: absolute;
+  right: 24px;
+  bottom: max(100px, 12svh);
+  left: 24px;
+  margin: 0;
+  color: #fff;
+  font-size: clamp(14px, 2vw, 22px);
+  line-height: 1.8;
+  text-align: center;
+}
 .prologue .intro__back, .prologue .intro__toggle { color: #77a4b9; border-color: #253e4a; background: #000; }
 .prologue .intro__back:hover, .prologue .intro__toggle:hover { color: #b6e5fc; border-color: #77a4b9; background-color: #0b1a22; }
 .hero[hidden], .intro[hidden], .prologue[hidden], .site-header[hidden] { display: none; }
@@ -429,12 +473,12 @@ a, button {
 
 
 .news { padding: 110px clamp(24px, 8vw, 130px); background: #0b0b0d; }
-.news__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; margin-top: 52px; }
+.news__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; margin-top: 52px; }
 .news-card { overflow: hidden; border: 1px solid #343033; border-radius: 12px; background: #191719; }
 .news-card__link { display: flex; flex-direction: column; height: 100%; text-decoration: none; }
 .news-card__link:hover { background-color: #242024; }
 .news-card__link:focus-visible { outline: 3px solid #ffe36a; outline-offset: -3px; }
-.news-card__image { display: block; width: 100%; height: auto; aspect-ratio: 2 / 1; object-fit: cover; }
+.news-card__image { display: block; width: 100%; height: auto; aspect-ratio: 1200 / 630; object-fit: cover; }
 .news-card__body { display: flex; flex: 1; flex-direction: column; padding: 26px; }
 .news-card time, .news-post time { color: #b9aca6; font-size: 12px; letter-spacing: .12em; }
 .news-card h3 { margin: 16px 0 12px; font-size: 21px; font-weight: 700; line-height: 1.6; }
@@ -577,17 +621,34 @@ a, button {
 @media (max-width: 760px) {
   .site-header { padding: 22px 20px; }
   .site-nav { display: none; }
-  .hero { --credits-height: 460px; height: auto; min-height: 384px; aspect-ratio: 2 / 1; padding-bottom: var(--credits-height); box-sizing: content-box; }
-  .hero__image { height: calc(100% - var(--credits-height)); object-position: center top; }
-  .hero__event-logo { bottom: calc(var(--credits-height) + 172px); width: 78vw; }
-  .hero__opening { bottom: calc(var(--credits-height) + 140px); }
-  .hero__actions { bottom: calc(var(--credits-height) + 62px); gap: 10px; }
-  .hero__sponsor { padding: 10px 14px; font-size: 12px; letter-spacing: .06em; }
-  .hero__credits { top: auto; bottom: 246px; left: 6%; width: 88%; }
-  .hero__credits--cast { right: auto; bottom: 26px; }
-  .poster-cast li { font-size: clamp(18px, 3.5vw, 24px); }
-  .poster-credits dt { font-size: 10px; }
-  .poster-credits dd { font-size: clamp(15px, 3.5vw, 22px); }
+  .hero {
+    --visual-height: max(384px, 50vw);
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: auto;
+    padding: var(--visual-height) 24px 40px;
+  }
+  .hero__image { height: var(--visual-height); object-position: center top; }
+  .hero__event-logo { top: calc(var(--visual-height) - 172px); bottom: auto; width: 78vw; transform: translate(-50%, -100%); }
+  .hero__opening { top: calc(var(--visual-height) - 156px); bottom: auto; }
+  .hero__actions { top: calc(var(--visual-height) - 106px); bottom: auto; gap: 6px; }
+  .hero__sponsor { padding: 10px 6px; font-size: clamp(10px, 3vw, 12px); letter-spacing: 0; }
+  .hero__credits { position: relative; inset: auto; width: 100%; flex-direction: column; gap: 16px; }
+  .hero__credits--cast { gap: 32px; }
+  .hero__cast-row { flex-direction: column; gap: 16px; }
+  .poster-credits__heading { writing-mode: horizontal-tb; font-size: 13px; }
+  .poster-credits { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: flex-start; gap: 20px 24px; width: 100%; }
+  .poster-credits__member { align-items: flex-start; }
+  .poster-credits dt { writing-mode: horizontal-tb; min-height: 0; font-size: 11px; letter-spacing: .08em; }
+  .poster-credits dd { writing-mode: horizontal-tb; margin-top: 6px; font-size: 16px; letter-spacing: .04em; }
+  .hero__keynote { flex-direction: row; flex-wrap: wrap; justify-content: flex-start; gap: 8px 16px; padding: 0; }
+  .hero__keynote-name { writing-mode: horizontal-tb; font-size: 36px; }
+  .hero__keynote-label { flex-basis: 100%; }
+  .poster-cast { flex-direction: row; flex-wrap: wrap; justify-content: flex-start; gap: 14px 24px; }
+  .poster-cast li { writing-mode: horizontal-tb; font-size: 18px; letter-spacing: .04em; }
   .site-logo__image { width: 140px; }
   .hero__sun { top: 120px; right: -25px; width: 150px; }
   .hero h1 { font-size: clamp(48px, 15vw, 70px); }
@@ -631,9 +692,3 @@ a, button {
   html { scroll-behavior: auto; }
   a, button, .site-nav a { transition: none; }
 }
-
-.release-keynote { position: relative; padding: 64px 24px; text-align: center; }
-.release-keynote h2 { margin: 12px 0 28px; font-size: 2rem; }
-.release-keynote a { display: inline-flex; align-items: center; gap: 24px; text-decoration: none; font-size: 1.5rem; }
-.release-keynote img { border-radius: 50%; }
-.release-keynote small { display: block; font-size: 1rem; }

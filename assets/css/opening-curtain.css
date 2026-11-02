@@ -1,0 +1,12 @@
+/* The existing teaser's first screen becomes the rising curtain. */
+.opening-curtain { display: none; position: fixed; z-index: 100; inset: 0; overflow: hidden; color: #d6b36b; background-color: #1c1c1f; background-image: linear-gradient(rgb(28 28 31 / 93%), rgb(28 28 31 / 93%)), url('../images/teaser-background.webp'); background-size: auto, 180px 180px; box-shadow: 0 18px 60px rgb(0 0 0 / 55%); transform: translateY(0); transition: transform 1800ms cubic-bezier(.65, 0, .25, 1); will-change: transform; }
+.curtain-pending { overflow: hidden; }
+.curtain-pending .opening-curtain { display: block; }
+.opening-curtain.is-opening { transform: translateY(-110%); }
+.opening-curtain .teaser { display: grid; place-items: center; height: 100%; padding: 32px; }
+.opening-curtain .teaser__visual { width: min(620px, calc((100svh - 64px) * .9565)); max-width: 100%; margin: 0; }
+.opening-curtain .teaser__visual img { display: block; width: 100%; height: auto; }
+@media (prefers-reduced-motion: reduce) {
+  .curtain-pending .opening-curtain { display: none; transition: none; }
+  .curtain-pending { overflow: auto; }
+}

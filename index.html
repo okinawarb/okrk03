@@ -1,10 +1,13 @@
 ---
 layout: default
 body_class: home-page
+opening_curtain: true
 title: トップ
 description: Rubyと出会い、人とつながる。沖縄でひらく、地域Ruby会議「沖縄Ruby会議03」。
 ---
 
+{% include opening-curtain.html %}
+<div class="release-content">
 <header class="site-header">
   <a class="site-logo" href="#top" aria-label="沖縄Ruby会議03 トップへ">
     <img class="site-logo__image" src="{{ '/assets/images/horizontal-logo.svg' | relative_url }}" alt="沖縄Ruby会議03">
@@ -36,18 +39,29 @@ description: Rubyと出会い、人とつながる。沖縄でひらく、地域
         {% endfor %}
       </dl>
     </aside>
-    <aside class="hero__credits hero__credits--cast" aria-label="出演者（仮名）">
-      <h2 class="poster-credits__heading">出演</h2>
-      <ul class="poster-cast">
-        {% for speaker in site.data.poster_cast %}
-        <li>{{ speaker.name }}</li>
-        {% endfor %}
-      </ul>
+    <aside class="hero__credits hero__credits--cast" aria-label="主演と出演者">
+      <div class="hero__cast-row">
+        <h2 class="poster-credits__heading">主演</h2>
+        <a class="hero__keynote" href="{{ '/news/keynote-tompng/' | relative_url }}">
+          <span class="hero__keynote-label">基調講演</span>
+          <span class="hero__keynote-name">ぺん！</span>
+          <span class="hero__keynote-handle">@tompng</span>
+        </a>
+      </div>
+      <div class="hero__cast-row" aria-label="出演者（仮名）">
+        <h2 class="poster-credits__heading">出演</h2>
+        <ul class="poster-cast">
+          {% for speaker in site.data.poster_cast %}
+          <li>{{ speaker.name }}</li>
+          {% endfor %}
+        </ul>
+      </div>
     </aside>
   </section>
 
   <section class="prologue" aria-label="あらすじのプロローグ" hidden>
     <p class="prologue__text" lang="en">A long time ago in a galaxy far,<br>far away....</p>
+    <p class="prologue__subtitle" lang="ja">遠い昔、はるか彼方の銀河系（2027年2月20日那覇市櫻坂劇場）で……</p>
     <button class="intro__back prologue__back" type="button">{% include back-icon.svg %} 戻る</button>
     <button class="intro__toggle prologue__skip" type="button">スキップ</button>
   </section>
@@ -68,14 +82,8 @@ description: Rubyと出会い、人とつながる。沖縄でひらく、地域
     <button class="intro__back" type="button">{% include back-icon.svg %} 戻る</button>
   </section>
 
-  <section class="release-keynote" aria-labelledby="release-keynote-title">
-    <p class="section-label">KEYNOTE</p>
-    <h2 id="release-keynote-title">基調講演</h2>
-    <a href="https://x.com/tompng" target="_blank" rel="noopener noreferrer"><img src="{{ '/assets/images/speakers/tompng.webp' | relative_url }}" alt="" width="120" height="120" loading="lazy"><span>ぺん！ <small>@tompng</small></span></a>
-  </section>
   <section class="news" id="news" aria-labelledby="news-title">
     <div>
-      <p class="section-label">NEWS</p>
       <h2 id="news-title">最新のお知らせ</h2>
     </div>
     <div class="news__grid">
@@ -223,3 +231,5 @@ description: Rubyと出会い、人とつながる。沖縄でひらく、地域
   <img class="site-footer__logo" src="{{ '/assets/images/horizontal-logo.svg' | relative_url }}" alt="沖縄Ruby会議03" width="210" height="43">
   <p>沖縄Ruby会議03 Teamによるこの作品は、クリエイティブ・コモンズ 表示 4.0 国際ライセンスの下で提供されています。</p>
 </footer>
+
+</div>

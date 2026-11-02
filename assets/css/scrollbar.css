@@ -1,0 +1,33 @@
+/* Keep page width stable on short pages and while the opening curtain locks scrolling. */
+html {
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+}
+
+/* Chrome and other browsers supporting WebKit scrollbar styling. */
+@media (forced-colors: none) {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track,
+  ::-webkit-scrollbar-corner {
+    background: #0b0b0d;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    min-height: 40px;
+    border: 2px solid #0b0b0d;
+    border-radius: 999px;
+    background: #8f7749;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #d6b36b;
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    background: #ffe36a;
+  }
+}

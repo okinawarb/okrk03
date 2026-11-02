@@ -55,6 +55,27 @@
     {% else %}
     <link rel="stylesheet" href="{{ '/assets/css/teaser.css' | relative_url }}">
     {% endif %}
+    <link rel="stylesheet" href="{{ '/assets/css/scrollbar.css' | relative_url }}">
+    {% if page.opening_curtain %}
+    <link rel="stylesheet" href="{{ '/assets/css/opening-curtain.css' | relative_url }}">
+    <script>
+      (() => {
+        let fromSameDomain = false;
+        try {
+          fromSameDomain = new URL(document.referrer).hostname === window.location.hostname;
+        } catch (_) {
+          // Direct visits have no referrer.
+        }
+        const navigation = performance.getEntriesByType('navigation')[0];
+        const returningThroughHistory = navigation && navigation.type === 'back_forward';
+        if (!fromSameDomain && !returningThroughHistory && !window.matchMedia('(prefers-reduced-motion: reduce)').matches && !window.location.hash) {
+          document.documentElement.classList.add('curtain-pending');
+          window.curtainFallback = setTimeout(function () { document.documentElement.classList.remove('curtain-pending'); }, 7000);
+        }
+      })();
+    </script>
+    <script src="{{ '/assets/js/opening-curtain.js' | relative_url }}" defer></script>
+    {% endif %}
   </head>
   <body class="{% unless body_class == 'home-page' or body_class == 'staff-page' or body_class == 'sponsorship-page' %}teaser-page {% endunless %}{{ body_class }}">
     {{ content }}
