@@ -5,7 +5,11 @@
       <img class="news-card__image" src="{{ post.thumbnail | default: '/assets/images/teaser-main-visual.svg' | relative_url }}" alt="" width="1200" height="630" loading="lazy">
       <div class="news-card__body">
         <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y.%m.%d' }}</time>
+        {% if include.heading_level == 2 %}
+        <h2 class="news-card__title">{{ post.title | escape }}</h2>
+        {% else %}
         <h3 class="news-card__title">{{ post.title | escape }}</h3>
+        {% endif %}
       </div>
     </a>
   </li>

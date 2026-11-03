@@ -17,14 +17,14 @@ layout: default
           <span class="teaser-keynote__handle">@tompng</span>
         </a>
       </section>
-      <div class="teaser__actions">
+      <nav class="teaser__actions" aria-label="募集情報">
         {% if site.cfp_url %}
         <a class="teaser__sponsor" href="{{ site.cfp_url | escape }}" target="_blank" rel="noopener noreferrer">プロポーザル募集</a>
         {% else %}
         <span class="teaser__sponsor" role="link" aria-disabled="true">プロポーザル募集</span>
         {% endif %}
         <a class="teaser__sponsor" href="{{ '/sponsors/' | relative_url }}">スポンサー募集</a>
-      </div>
+      </nav>
       <section class="teaser-news" aria-labelledby="news-title">
         <h2 id="news-title">お知らせ</h2>
         {% if site.posts.size > 0 %}

@@ -4,7 +4,8 @@ body_class: sponsor-page
 ---
 {% include header.html %}
 <main class="sponsor-main news-post">
-  <article class="news-post__card">
+  <article class="news-post__card" aria-labelledby="post-title">
+    <header>
     <div class="news-post__meta">
       <p class="news-post__date"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%Y.%m.%d' }}</time></p>
       {% if page.author %}
@@ -17,7 +18,8 @@ body_class: sponsor-page
       {% endif %}
       {% endif %}
     </div>
-    <h1>{{ page.title | escape }}</h1>
+    <h1 id="post-title">{{ page.title | escape }}</h1>
+    </header>
     {% if page.thumbnail %}
     <div class="news-post__thumbnail">
       <img src="{{ page.thumbnail | relative_url }}" alt="{{ page.title | escape }}" width="1200" height="630">
