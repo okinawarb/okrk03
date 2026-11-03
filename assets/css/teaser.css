@@ -140,6 +140,7 @@ body { font-size: 1rem; }
 .sponsor-body ul { padding-left: 1.5em; }
 .area-map { margin: 40px 0 0; }
 .area-map img { display: block; width: 100%; height: auto; border-radius: 8px; }
+.area-notes { margin-top: 40px; color: #a89e89; font-size: 0.875rem; }
 .sponsor-table { overflow-x: auto; margin: 24px 0; border: 1px solid #493c24; }
 .sponsor-table table { width: 100%; border-collapse: collapse; font-size: 1rem; }
 .sponsor-table th, .sponsor-table td { padding: 16px 20px; text-align: left; vertical-align: middle; }
