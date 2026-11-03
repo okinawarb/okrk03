@@ -29,9 +29,14 @@ layout: default
         <h2 id="news-title">お知らせ</h2>
         {% if site.posts.size > 0 %}
         {% include news-list.html posts=site.posts limit=3 %}
-        <a class="news-all" href="{{ '/news/' | relative_url }}">お知らせ一覧へ</a>
         {% else %}
         <p class="news-empty">開催に向けたお知らせを、こちらでお届けします。</p>
         {% endif %}
+        <div class="teaser-news__links">
+          {% if site.posts.size > 0 %}
+          <a class="news-all" href="{{ '/news/' | relative_url }}">お知らせ一覧へ</a>
+          {% endif %}
+          <a class="news-all" href="{{ '/area/' | relative_url }}">会場・宿泊エリア案内へ</a>
+        </div>
       </section>
     </main>
