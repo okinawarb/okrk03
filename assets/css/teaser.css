@@ -78,7 +78,8 @@ body { font-size: 1rem; }
 .news-card__title { margin: 10px 0 0; font-size: 16px; line-height: 1.8; overflow-wrap: anywhere; }
 .news-list .news-card:hover { color: #f4dc9d; background-color: #211a10; border-color: #d6b36b; }
 .news-list .news-card:focus-visible { outline: 2px solid #d6b36b; outline-offset: 5px; }
-.news-all { display: inline-block; margin-top: 24px; color: #d6b36b; font-size: 13px; text-underline-offset: 4px; }
+.news-all { display: inline-block; color: #d6b36b; font-size: 13px; text-underline-offset: 4px; }
+.teaser-news__links { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: 24px; }
 .news-empty { color: #a89e89; font-size: 14px; line-height: 1.9; text-align: center; }
 .teaser-news a:focus-visible { outline: 2px solid #d6b36b; outline-offset: 5px; }
 .news-post, .news-index { max-width: 880px; }
@@ -137,6 +138,8 @@ body { font-size: 1rem; }
 .sponsor-body h4 { margin: 28px 0 12px; font-size: 18px; }
 .sponsor-body h5, .sponsor-body h6 { margin: 24px 0 12px; font-size: 16px; }
 .sponsor-body ul { padding-left: 1.5em; }
+.area-map { margin: 40px 0 0; }
+.area-map img { display: block; width: 100%; height: auto; border-radius: 8px; }
 .sponsor-table { overflow-x: auto; margin: 24px 0; border: 1px solid #493c24; }
 .sponsor-table table { width: 100%; border-collapse: collapse; font-size: 1rem; }
 .sponsor-table th, .sponsor-table td { padding: 16px 20px; text-align: left; vertical-align: middle; }
